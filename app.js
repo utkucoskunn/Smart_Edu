@@ -1,7 +1,20 @@
 //*********eequire section**********
 const express=require('express');
 const ejs=require('ejs');
+const mongoose=require('mongoose');
+const pageRoute=require('./routes/pageRoute');
+const courseRoute=require('./routes/courseRoute');
 
+//*********connect db**************
+
+mongoose.connect('mongodb://localhost/smartedu-db', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(()=>{
+    console.log(('DB CONNECTED!'))
+}).catch((err)=>{
+    console.log(err)
+});
 
 //*********variable section**********
 const app=express();
@@ -11,19 +24,16 @@ app.set("view engine", "ejs");
 
 //*********middlewares section**********
 app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //*********routes section**********
+app.use('/',pageRoute);
+app.use('/courses',courseRoute);
+app.get('/about',);
 
-app.get('/',(req,res)=>{
-    res.status(200).render('index',{
-        page_name:"index"
-    });
-});
-app.get('/about',(req,res)=>{
-    res.status(200).render('about',{
-        page_name:"about"
-    });
-})
+
+
 //*********Port section**********
 
 const port=3000;
