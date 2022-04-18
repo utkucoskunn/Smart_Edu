@@ -4,6 +4,7 @@ const ejs=require('ejs');
 const mongoose=require('mongoose');
 const pageRoute=require('./routes/pageRoute');
 const courseRoute=require('./routes/courseRoute');
+const categoryRoute=require('./routes/categoryRoute');
 
 //*********connect db**************
 
@@ -30,7 +31,9 @@ app.use(express.urlencoded({ extended: true }));
 //*********routes section**********
 app.use('/',pageRoute);
 app.use('/courses',courseRoute);
+app.use('/categories',categoryRoute);
 app.get('/about',);
+
 
 
 
