@@ -46,7 +46,7 @@ exports.sendMail = async (req, res) => {
             port: 2525,
             auth: {
                 user: "666886797b5c17", // gmail account
-                pass:  "d86d57bec43199", // gmail password
+                pass: "d86d57bec43199", // gmail password
             }
         });
 
@@ -65,10 +65,10 @@ exports.sendMail = async (req, res) => {
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
-
+        req.flash("success", "We Received your succesfully");
         res.status(200).redirect('contact');
     } catch (err) {
-        console.log(err);
+        req.flash("error", `Something happened`);
         res.status(200).redirect('contact');
     }
 };
