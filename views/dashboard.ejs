@@ -77,7 +77,18 @@
                                 <h3 class="author_name"> COURSE FROM:<%= user.name %></h3>
                             </div>
                         </div>
-
+                        <% if(flashMessage) { %>
+                            <% if(flashMessage.success) { %>
+                                <div class="alert alert-success">
+                                    <%= flashMessage.success %>
+                                </div>
+                            <% } %>
+                            <% if(flashMessage.error) { %>
+                                <div class="alert alert-danger">
+                                    <%= flashMessage.error %>
+                                </div>
+                            <% } %>
+                        <% } %>
                     </div><!-- end col -->
                 </div><!-- end row -->
                 <div class="row mt-5">
@@ -94,6 +105,19 @@
                                     </div>
                                     <div class="course-desc">
                                         <p><%= courses[i].description %> </p>
+                                    </div>
+                                    <div class="clearfix">
+                                        <ul style="list-style-type: none">
+                                            <li style="float: left;">
+                                                <button class="btn btn-primary rounded-0 text-white"><span>UPDATE</span>
+                                                </button>
+                                            </li>
+                                            <li style="float: right;"><a
+                                                        href="/courses/<%= courses[i].slug %>?_method=DELETE"
+                                                        onclick="return confirm('Are You Sure?')"
+                                                        class="btn btn-danger rounded-0 text-white"><span>DELETE</span></a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
