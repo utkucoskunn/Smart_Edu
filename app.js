@@ -18,7 +18,7 @@ mongoose.connect('mongodb+srv://utkucoskun:88588858@cluster0.rsyf3.mongodb.net/s
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(()=>{
-    console.log(('DB CONNECTED!'))
+    console.log(('DB CONNECTED :)!'))
 }).catch((err)=>{
     console.log(err)
 });
@@ -68,7 +68,7 @@ app.get('/about',);
 
 //*********Port section**********
 
-const port=process.env.PORT||5000;
+const port=process.env.PORT || 5000;
 app.listen(port,()=>{
     console.log(`App started on port ${port}`)
 });
