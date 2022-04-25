@@ -14,7 +14,7 @@ const userRoute=require('./routes/userRoute');
 
 //*********connect db**************
 
-mongoose.connect('mongodb://localhost/smartedu-db', {
+mongoose.connect('mongodb+srv://utkucoskun:88588858@cluster0.rsyf3.mongodb.net/smartedu-db?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(()=>{
